@@ -9,27 +9,20 @@ class Program
         string original = "Mensagem original";
         WriteLine(original);
 
-        // Cria uma instância de Aes para a criptografia
         using (Aes aes = Aes.Create())
         {
-            // Gera a chave e o vetor de inicialização
             aes.GenerateKey();
             aes.GenerateIV();
 
-            // Armazena a chave e o vetor de inicialização em arrays de bytes
             byte[] key = aes.Key;
             byte[] iv = aes.IV;
 
-            // Criptografa a mensagem original
             byte[] encrypted = Encrypt(original, key, iv);
 
-            // Exibe a mensagem criptografada
             WriteLine("Mensagem criptografada: " + Convert.ToBase64String(encrypted));
 
-            // Decriptografa a mensagem criptografada
             string decrypted = Decrypt(encrypted, key, iv);
 
-            // Exibe a mensagem decriptografada
             WriteLine("Mensagem decriptografada: " + decrypted);
         }
     }

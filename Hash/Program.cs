@@ -22,7 +22,6 @@ class Program
     {
         using (SHA256 sha256Hash = SHA256.Create())
         {
-            // ComputeHash - returns byte array  
             byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
 
             // Convert byte array to a string   
@@ -39,7 +38,6 @@ class Program
     {
         using (MD5 md5Hash = MD5.Create())
         {
-            // ComputeHash - returns byte array  
             byte[] bytes = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
             // Convert byte array to a string   
             StringBuilder builder = new StringBuilder();
